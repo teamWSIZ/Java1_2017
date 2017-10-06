@@ -1,0 +1,10 @@
+
+
+# Do pobrania na \\10.10.0.10, user student
+# Z sieci --> wersja community
+
+
+# Skróty klawiszowe
+psvm + [tab]        # tworzy public static void main(String[] args)
+
+sout + [tab]        # tworzy System.out.println();
