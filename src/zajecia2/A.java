@@ -32,6 +32,10 @@ public class A {
         //przykład
 //        int a = 5, b = 5, c = 7;  //OK
 //        int a = 5, b = 5, c = 17;  //nie OK
+//        int a = 15, b = 1, c = 1;  //nie OK
+//        int a = 10, b = 5, c = 5;  //nie OK
+//        int a = 10, b = 5, c = 6;  //OK
+
 
 
 
