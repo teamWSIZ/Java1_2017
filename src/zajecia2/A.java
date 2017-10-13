@@ -24,7 +24,15 @@ public class A {
             System.out.println("napis jest w nawiasie");
         }
 
-//        int a = 5, b = 5, c = 7;
+        //zadanie: dane są liczby całkowite a,b,c
+        //jeśli można stworzyć trójkąt, którego boki mają takie długości jak a,b,c
+        //to proszę wypisać "liczby są OK", inaczej wypisać
+        // "nie można skonstruować trójkąta"
+
+        //przykład
+//        int a = 5, b = 5, c = 7;  //OK
+//        int a = 5, b = 5, c = 17;  //nie OK
+
 
 
     }
