@@ -30,12 +30,17 @@ public class A {
         // "nie można skonstruować trójkąta"
 
         //przykład
-//        int a = 5, b = 5, c = 7;  //OK
+        int a = 5, b = 5, c = 7;  //OK
 //        int a = 5, b = 5, c = 17;  //nie OK
 //        int a = 15, b = 1, c = 1;  //nie OK
 //        int a = 10, b = 5, c = 5;  //nie OK
 //        int a = 10, b = 5, c = 6;  //OK
 
+        if ((a+b>c) && (b+c>a) && (a+c>b)) {
+            System.out.println("liczby są OK");
+        } else {
+            System.out.println("nie można skonstruować trójkąta");
+        }
 
 
 
