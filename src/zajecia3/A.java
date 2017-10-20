@@ -38,7 +38,17 @@ public class A {
                 System.out.println(s);
             }
         }
-
-
     }
 }
+
+/*
+ * Zadanie 1: dana jest lista napisów (jak powyżej); sprawdzić,
+ * czy w tej liście któryś napis się powtarza.
+ * przykład ['aa','ab,'aa','cc'] --> tak, 'aa'
+ * przykład ['aa','ab','ac'] --> nie
+ *
+ * Zadanie 2: Mając daną listę napisów stworzyć nowy napis, który
+ * jest skejeniem wszystkich napisów listy.
+ * przykład ['aa','ab,'aa','cc'] --> "aaabaaac"
+ *
+ */
