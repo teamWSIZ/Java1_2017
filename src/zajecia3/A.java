@@ -2,6 +2,7 @@ package zajecia3;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class A {
@@ -12,6 +13,8 @@ public class A {
         pesele.add("X1234A");
         pesele.add("222ABC");
         pesele.add("X1234A");
+        pesele.add("X1234B");
+        pesele.add("X1234Z");
         pesele.add("X1234A");
 
         System.out.println(pesele);         //wypisuje liste na konsole
@@ -24,6 +27,17 @@ public class A {
         System.out.println(pesele.contains("X1234A****"));
 
         System.out.println(pesele.indexOf("X1234A"));
+
+        Collections.sort(pesele);
+        System.out.println(pesele);
+
+        for(String s : pesele) {
+            if (s.contains("C")) {
+                System.out.println(s + "<---- zawiera 'C'");
+            } else {
+                System.out.println(s);
+            }
+        }
 
 
     }
