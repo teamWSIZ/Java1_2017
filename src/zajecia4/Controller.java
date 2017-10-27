@@ -7,14 +7,20 @@ import javafx.scene.control.TextField;
 public class Controller {
 
     @FXML
-    TextField in;
+    TextField innX;
 
     @FXML
     TextField out;
 
     public void napiszX() {
         System.out.println("XXXX" + out.getText());
-        in.setText("WWW" + out.getText());
+        innX.setText("WWW" + out.getText());
+
+        String xs = "-1234";
+
+        long i = Integer.valueOf(xs);
+        System.out.println(i);
+
     }
 
 }

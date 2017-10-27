@@ -46,7 +46,7 @@
         <center>
             <VBox>
                 <HBox>
-                    <TextField fx:id="in" editable="false" />
+                    <TextField fx:id="innX" editable="false" />
                     <TextField fx:id="out" />
                 </HBox>
             </VBox>
