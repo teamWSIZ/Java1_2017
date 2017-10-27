@@ -37,8 +37,9 @@
             </HBox>
         </top>
         <left>
-            <VBox prefWidth="200">
-                <Button>Start</Button>
+            <VBox prefWidth="200" alignment="TOP_LEFT" style="-fx-padding: 10px">
+                <Button prefWidth="100">Start</Button>
+                <Button prefWidth="100">Zatrzymaj</Button>
             </VBox>
         </left>
 
