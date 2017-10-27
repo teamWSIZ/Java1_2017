@@ -12,4 +12,9 @@ public class Controller {
     @FXML
     TextField out;
 
+    public void napiszX() {
+        System.out.println("XXXX" + out.getText());
+        in.setText("WWW" + out.getText());
+    }
+
 }
