@@ -32,12 +32,16 @@ public class A {
         System.out.println(pesele);
 
         for(String s : pesele) {
+
             if (s.contains("C")) {
                 System.out.println(s + "<---- zawiera 'C'");
             } else {
                 System.out.println(s);
             }
         }
+        String s = null;
+        System.out.println("----");
+        System.out.println(s.isEmpty());
     }
 }
 

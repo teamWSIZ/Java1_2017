@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="zajecia4.Controller"
+      prefHeight="400.0" prefWidth="600.0">
+
+    <MenuBar fx:id="menuBar">
+        <menus>
+            <Menu text="Zestaw">
+                <items>
+                    <MenuItem text="---" />
+                    <MenuItem text="Otwórz"/>
+                    <MenuItem text="---" />
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+
+
+    <BorderPane>
+        <top>
+            <HBox alignment="CENTER" minHeight="30">
+
+            </HBox>
+        </top>
+        <left>
+            <VBox prefWidth="200">
+                <Button >Start</Button>
+            </VBox>
+        </left>
+
+        <center>
+            <VBox>
+                <HBox>
+                    <TextField fx:id="in" editable="false"></TextField>
+                    <TextField fx:id="out" ></TextField>
+                </HBox>
+            </VBox>
+        </center>
+
+        <right>
+        </right>
+
+    </BorderPane>
+
+
+</VBox>
