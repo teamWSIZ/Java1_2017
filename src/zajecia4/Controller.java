@@ -20,7 +20,11 @@ public class Controller {
 
         long i = Integer.valueOf(xs);
         System.out.println(i);
+    }
 
+    public void naszaAkcja() {
+        System.out.println(2 * 17);
+        innX.setText("" + (2 * 17));
     }
 
 }
