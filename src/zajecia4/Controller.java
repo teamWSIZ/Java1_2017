@@ -10,11 +10,14 @@ public class Controller {
     TextField innX;
 
     @FXML
-    TextField out;
+    TextField outA;
+
+    @FXML
+    TextField wynik;
 
     public void napiszX() {
-        System.out.println("XXXX" + out.getText());
-        innX.setText("WWW" + out.getText());
+        System.out.println("XXXX" + outA.getText());
+        innX.setText("WWW" + outA.getText());
 
         String xs = "-1234";
 

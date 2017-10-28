@@ -59,7 +59,10 @@
             <VBox>
                 <HBox>
                     <TextField fx:id="innX" />
-                    <TextField fx:id="out" />
+                    <TextField fx:id="outA" />
+                </HBox>
+                <HBox>
+                    <TextField fx:id="wynik"/>
                 </HBox>
             </VBox>
         </center>
