@@ -12,11 +12,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.canvas.Canvas?>
 <VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zajecia4_5.Controller">
 
     <MenuBar fx:id="menuBar">
         <menus>
-            <Menu text="Zestaw">
+            <Menu text="File">
                 <items>
                     <MenuItem text="---" />
                     <MenuItem text="Otwórz" />
@@ -38,29 +39,32 @@
         <top>
             <HBox alignment="CENTER" minHeight="30">
                 <Button onAction="#napiszX">Pierwszy</Button>
-                <Button onAction="#naszaAkcja">Drugi</Button>
+                <Button onAction="#rysowanie">Rysuj</Button>
             </HBox>
         </top>
         <left>
-            <VBox alignment="TOP_LEFT" prefWidth="200" style="-fx-padding: 10px">
-                <Button prefWidth="100">Start</Button>
-                <Button prefWidth="100">Zatrzymaj</Button>
+            <VBox alignment="TOP_LEFT" prefWidth="200" style="-fx-padding: 10px; -fx-border-style: dashed">
+                <Button prefWidth="100" onAction="#liczSume">Suma</Button>
+                <Button prefWidth="100" onAction="#liczRoznice">Różnica</Button>
             </VBox>
         </left>
 
         <center>
             <VBox>
-                <HBox>
-                    <TextField fx:id="innX" />
-                    <TextField fx:id="outA" />
+                <HBox style="-fx-border-style: solid">
+                    <TextField fx:id="lewy" />
+                    <TextField fx:id="prawy" />
                 </HBox>
-                <HBox>
-                    <TextField fx:id="wynik"/>
+                <HBox alignment="CENTER">
+                    <TextField fx:id="wynik" promptText="wynik" editable="false"/>
                 </HBox>
             </VBox>
         </center>
 
         <right>
+            <VBox  style="-fx-border-style: dashed">
+                <Canvas fx:id="ourCanvas" width="300" height="300" />
+            </VBox>
         </right>
 
     </BorderPane>
