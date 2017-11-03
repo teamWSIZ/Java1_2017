@@ -1,13 +1,11 @@
 package zajecia4_5;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.ArcType;
 
 
 public class Controller {
@@ -37,6 +35,11 @@ public class Controller {
     public void rysowanie() {
         GraphicsContext gc = ourCanvas.getGraphicsContext2D();
 
+        //rysowanie obrazka z pliku w pakiecie zajecia4_5/rex
+        Image image = new Image(getClass().getResourceAsStream("rex/Diana_1.jpg"));
+        gc.drawImage(image, 50, 50, 300, 200);
+
+
         gc.setStroke(Color.CORNFLOWERBLUE);
         gc.strokeRect(0, 0, 15, 35);
 
@@ -57,6 +60,11 @@ public class Controller {
         gc.fillOval(10, 60, 30, 30);
         gc.strokeOval(60, 60, 30, 30);
         gc.fillRoundRect(110, 60, 30, 30, 10, 10);
+
+        //czyszczenie obszaru canvas-a
+        gc.clearRect(0, 200, 100, 20);
+
+
 
     }
 
