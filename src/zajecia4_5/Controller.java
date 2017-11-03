@@ -52,9 +52,9 @@ public class Controller {
     }
 
     public void liczSume() {
-        double x = Double.valueOf(lewy.getText());
+        double xx = Double.valueOf(lewy.getText());
         double y = Double.valueOf(prawy.getText());
-        wynik.setText("" + (x+y));
+        wynik.setText("" + (xx+y));
     }
 
     public void liczRoznice() {

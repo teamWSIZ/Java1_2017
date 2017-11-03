@@ -13,7 +13,8 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.canvas.Canvas?>
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zajecia4_5.Controller">
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="zajecia4_5.Controller">
 
     <MenuBar fx:id="menuBar">
         <menus>
@@ -51,9 +52,11 @@
 
         <center>
             <VBox>
-                <HBox style="-fx-border-style: solid">
-                    <TextField fx:id="lewy" />
-                    <TextField fx:id="prawy" />
+                <HBox style="-fx-border-style: solid;
+                            -fx-border-width: 5px; -fx-border-color: crimson"
+                      alignment="CENTER">
+                    <TextField fx:id="lewy" promptText="liczba x" />
+                    <TextField fx:id="prawy" promptText="liczba y" />
                 </HBox>
                 <HBox alignment="CENTER">
                     <TextField fx:id="wynik" promptText="wynik" editable="false"/>
