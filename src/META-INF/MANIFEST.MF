@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: zajecia4.Main
+Main-Class: zajecia4_5.Main
 

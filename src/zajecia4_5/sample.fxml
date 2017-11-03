@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zajecia4.Controller">
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zajecia4_5.Controller">
 
     <MenuBar fx:id="menuBar">
         <menus>
@@ -39,19 +39,12 @@
             <HBox alignment="CENTER" minHeight="30">
                 <Button onAction="#napiszX">Pierwszy</Button>
                 <Button onAction="#naszaAkcja">Drugi</Button>
-                <Button>Uruchom</Button>
-                <Button>Czwarty</Button>
-                <Button>Piąty</Button>
             </HBox>
         </top>
         <left>
             <VBox alignment="TOP_LEFT" prefWidth="200" style="-fx-padding: 10px">
                 <Button prefWidth="100">Start</Button>
                 <Button prefWidth="100">Zatrzymaj</Button>
-                <ToggleButton   text="ToggleButton" />
-                <ColorPicker />
-                <ColorPicker />
-                <ColorPicker />
             </VBox>
         </left>
 

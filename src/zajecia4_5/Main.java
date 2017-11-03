@@ -1,4 +1,4 @@
-package zajecia4;
+package zajecia4_5;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
