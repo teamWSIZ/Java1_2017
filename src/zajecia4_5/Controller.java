@@ -6,6 +6,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.ArcType;
 
 
@@ -34,15 +35,23 @@ public class Controller {
     }
 
     public void rysowanie() {
-        System.out.println("rysujemy...");
-
         GraphicsContext gc = ourCanvas.getGraphicsContext2D();
-        gc.setStroke(Color.GRAY);
+
+        gc.setStroke(Color.CORNFLOWERBLUE);
         gc.strokeRect(0, 0, 15, 35);
-        gc.strokeLine(5,5,300,295);
+
+        gc.strokeLine(5, 5, 300, 295);
+
+        int mx = 400;
+        for (int i = 0; i < mx; i += 4) {
+            gc.setStroke(new Color(1.0 * (mx-i)/mx, 0, 1.0 * i / mx, 1.0));
+            gc.strokeLine(200, 0, i, 400);
+        }
+
 
         gc.setFill(Color.GREEN);
         gc.setStroke(Color.BLUE);
+
         gc.setLineWidth(5);
         gc.strokeLine(40, 10, 10, 40);
         gc.fillOval(10, 60, 30, 30);
