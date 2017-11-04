@@ -40,6 +40,13 @@ public class Controller {
         gc.setLineWidth(5);
         gc.strokeOval(100,100,250,200);
         gc.strokeRect(100, 300, 50, 50);
+
+        Image image = new Image(
+                getClass().getResourceAsStream("Diana_1.jpg"),
+                300, 200, true, false);
+        gc.drawImage(image, 50, 50);
+
+
     }
 
     public void liczSume() {
