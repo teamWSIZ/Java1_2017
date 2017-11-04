@@ -35,7 +35,9 @@
             </HBox>
         </top>
         <left>
-            <VBox alignment="TOP_LEFT" prefWidth="200" style="-fx-padding: 10px; -fx-border-style: dashed">
+            <VBox alignment="TOP_LEFT" prefWidth="200"
+                  style="-fx-padding: 10px; -fx-border-style: solid; -fx-border-width: 5;
+                    -fx-border-color: bisque">
                 <Button prefWidth="100" onAction="#liczSume">Suma</Button>
                 <Button prefWidth="100" onAction="#liczRoznice">Różnica</Button>
             </VBox>
@@ -46,7 +48,7 @@
                 <HBox style="-fx-border-style: solid;
                             -fx-border-width: 5px; -fx-border-color: crimson"
                       alignment="CENTER">
-                    <TextField fx:id="lewy" promptText="liczba x" />
+                    <TextField fx:id="lewy" promptText="wpisz liczbę x" />
                     <TextField fx:id="prawy" promptText="liczba y" />
                 </HBox>
                 <HBox alignment="CENTER">
@@ -60,6 +62,12 @@
                 <Canvas fx:id="ourCanvas" width="400" height="400" />
             </VBox>
         </right>
+
+        <bottom>
+            <HBox alignment="CENTER" style="-fx-border-style: solid">
+                <Label> Bottom part</Label>
+            </HBox>
+        </bottom>
 
     </BorderPane>
 

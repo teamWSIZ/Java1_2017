@@ -33,10 +33,17 @@ public class Controller {
     }
 
     public void rysowanie() {
+        GraphicsContext gc = ourCanvas.getGraphicsContext2D();
+
+        gc.setStroke(Color.CORNFLOWERBLUE);
+        gc.strokeLine(10,10,250,100);
+        gc.setLineWidth(5);
+        gc.strokeOval(100,100,250,200);
+        gc.strokeRect(100, 300, 50, 50);
     }
 
     public void liczSume() {
-        double xx = Double.valueOf(lewy.getText());
+        double xx = Double.valueOf(lewy.getText()); //zamiana napisu na liczbe ułamkową
         double y = Double.valueOf(prawy.getText());
         wynik.setText("" + (xx+y));
     }
