@@ -14,7 +14,8 @@
 
 <?import javafx.scene.canvas.Canvas?>
 <VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="zajecia4_5.Controller">
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="zajecia4_5.Controller"
+>
 
     <MenuBar fx:id="menuBar">
         <menus>
@@ -36,7 +37,7 @@
         </menus>
     </MenuBar>
 
-    <BorderPane>
+    <BorderPane fx:id="bp">
         <top>
             <HBox alignment="CENTER" minHeight="30">
                 <Button onAction="#napiszX">Pierwszy</Button>

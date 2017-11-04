@@ -5,6 +5,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
 
@@ -21,6 +22,24 @@ public class Controller {
 
     @FXML
     Canvas ourCanvas;
+
+    @FXML
+    BorderPane bp;
+
+    public void initialize() {
+        System.out.println("init");
+        String url = getClass().getResource("rex/Diana_1.jpg").toExternalForm();
+        BackgroundImage myBI= new BackgroundImage(
+                new Image(url,320,320,false,true),
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+        System.out.println(myBI.getSize().getHeight());
+        bp.setBackground(new Background(myBI));
+
+//        bp.setStyle("-fx-background-image: url('" + url + "'); " +
+//                "-fx-background-position: center center; " +
+//                "-fx-background-repeat: stretch;");
+    }
 
     public void napiszX() {
         System.out.println("XXXX" + prawy.getText());
