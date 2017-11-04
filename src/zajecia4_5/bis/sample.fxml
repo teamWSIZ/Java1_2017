@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="zajecia4_5.bis.Controller"
+>
+
+    <MenuBar fx:id="menuBar">
+        <menus>
+            <Menu text="File">
+                <items>
+                    <MenuItem text="---" />
+                    <MenuItem text="Otwórz" />
+                    <MenuItem text="---" />
+                </items>
+            </Menu>
+            <Menu text="Edit">
+                <items>
+                    <MenuItem text="Cut" />
+                    <MenuItem text="Copy" />
+                    <SeparatorMenuItem />
+                    <MenuItem text="Paste" />
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+    <BorderPane fx:id="bp">
+        <top>
+            <HBox alignment="CENTER" minHeight="30">
+                <Button onAction="#napiszX">Pierwszy</Button>
+                <Button onAction="#rysowanie">Rysuj</Button>
+            </HBox>
+        </top>
+        <left>
+            <VBox alignment="TOP_LEFT" prefWidth="200" style="-fx-padding: 10px; -fx-border-style: dashed">
+                <Button prefWidth="100" onAction="#liczSume">Suma</Button>
+                <Button prefWidth="100" onAction="#liczRoznice">Różnica</Button>
+            </VBox>
+        </left>
+
+        <center>
+            <VBox>
+                <HBox style="-fx-border-style: solid;
+                            -fx-border-width: 5px; -fx-border-color: crimson"
+                      alignment="CENTER">
+                    <TextField fx:id="lewy" promptText="liczba x" />
+                    <TextField fx:id="prawy" promptText="liczba y" />
+                </HBox>
+                <HBox alignment="CENTER">
+                    <TextField fx:id="wynik" promptText="wynik" editable="false"/>
+                </HBox>
+            </VBox>
+        </center>
+
+        <right>
+            <VBox  style="-fx-border-style: dashed">
+                <Canvas fx:id="ourCanvas" width="400" height="400" />
+            </VBox>
+        </right>
+
+    </BorderPane>
+
+
+</VBox>

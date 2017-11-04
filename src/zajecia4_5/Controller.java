@@ -30,7 +30,7 @@ public class Controller {
         System.out.println("init");
         String url = getClass().getResource("rex/Diana_1.jpg").toExternalForm();
         BackgroundImage myBI= new BackgroundImage(
-                new Image(url,320,320,false,true),
+                new Image(url),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         System.out.println(myBI.getSize().getHeight());
