@@ -32,24 +32,46 @@ public class Controller {
         gc.setFill(Color.BLACK);
         String napis = input_kodu.getText();
 
-        String zakodowany = startSymbol;
+        String zakodowany = "";//startSymbol;
         for (int i = 0; i < napis.length(); i++) {
             int liczba = napis.charAt(i) - '0';
             zakodowany += kodyCyfr.get(liczba);
         }
-        zakodowany += stopPattern;
+//        zakodowany += stopPattern;
+
+//        zakodowany = "11223344";
 
         System.out.println(napis);
         System.out.println(zakodowany);
 
+
         double x = 10;
+        gc.setStroke(Color.RED);
+        gc.strokeLine(x, 0, x, 300);
+        x++;
+        gc.setStroke(Color.BLACK);
+
         for (int i = 0; i < zakodowany.length(); i++) {
             int liczba = zakodowany.charAt(i) - '0';
+            System.out.println("drawing " + liczba);
             if (i%2==0) {
-                gc.fillRect(x, 10, liczba, 280);
+                for (int j = 0; j < liczba; j++) {
+                    gc.strokeLine(x, 10, x, 280);
+                    x++;
+                    gc.strokeLine(x, 10, x, 280);
+                    x++;
+                }
+            } else {
+                x += 2*liczba;
             }
-            x += 1 + liczba;
         }
+        x++;
+
+        gc.setStroke(Color.RED);
+        gc.strokeLine(x, 0, x, 300);
+
+
+//        gc.fillRect(10,10,2,300);
 
     }
 
