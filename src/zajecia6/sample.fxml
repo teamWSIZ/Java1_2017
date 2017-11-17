@@ -27,21 +27,14 @@
         </menus>
     </MenuBar>
 
-    <BorderPane fx:id="bp">
-        <top>
-            <Button>Click me!</Button>
-        </top>
+    <VBox alignment="TOP_LEFT">
+        <Canvas fx:id="codecanvas" height="300" width="500" style="-fx-border-style: solid">
 
-        <left>
-        </left>
-
-        <center>
-        </center>
-
-        <right>
-        </right>
-
-    </BorderPane>
-
+        </Canvas>
+        <VBox alignment="CENTER_LEFT">
+            <TextField fx:id="input_kodu" prefWidth="200"></TextField>
+            <Button onAction="#rysujKod"> Generuj kod </Button>
+        </VBox>
+    </VBox>
 
 </VBox>
