@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         stage.setTitle("Kody kreskowe");
-        stage.setScene(new Scene(root, 700, 800));
+        stage.setScene(new Scene(root, 800, 500));
         stage.show();
     }
 
