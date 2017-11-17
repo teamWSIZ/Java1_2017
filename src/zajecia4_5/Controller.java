@@ -94,6 +94,17 @@ public class Controller {
     }
 
     public void liczRoznice() {
-        //todo
+        String xx = lewy.getText();
+        String yy = prawy.getText();
+
+        double x = Double.valueOf(xx);
+        double y = Double.valueOf(yy);
+
+        System.out.println("!!!!");
+
+        double diff = x - y;
+        String napis = "" + diff; //zamiana na napis
+
+        wynik.setText(napis);
     }
 }
