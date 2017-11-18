@@ -29,7 +29,7 @@
     </MenuBar>
 
     <VBox alignment="TOP_LEFT">
-        <Canvas fx:id="codecanvas" height="200" width="200" style="-fx-border-style: solid; -fx-border-width: 2px">
+        <Canvas fx:id="szachycanvas" height="200" width="200" style="-fx-border-style: solid; -fx-border-width: 2px">
 
         </Canvas>
         <VBox alignment="CENTER_LEFT">

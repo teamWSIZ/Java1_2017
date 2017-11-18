@@ -8,13 +8,13 @@ import javafx.scene.control.TextField;
 public class Controller {
 
     @FXML
-    Canvas codecanvas;
+    Canvas szachycanvas;
 
     @FXML
     TextField input_kodu;
 
     public void rysujPlansze() {
-        GraphicsContext gc = codecanvas.getGraphicsContext2D();
+        GraphicsContext gc = szachycanvas.getGraphicsContext2D();
         gc.setLineWidth(5);
         gc.strokeLine(5,5, 100,200);
     }
