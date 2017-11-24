@@ -10,6 +10,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
+//Zapis stanu gry: https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation
+
 public class Controller {
 
     @FXML
