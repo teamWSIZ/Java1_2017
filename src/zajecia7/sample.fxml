@@ -51,6 +51,9 @@
                             <String fx:value="Król" />
                         </FXCollections>
                     </items>
+                    <value>
+                        <String fx:value="Pion" />
+                    </value>
                 </ComboBox>
             </HBox>
         </VBox>
