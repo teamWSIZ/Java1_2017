@@ -24,19 +24,34 @@ public class Controller {
 //        gc.fillRect(90,50, 20, 20);
 //        gc.fillRect(70,70, 20, 20);
 
-        gc.setLineWidth(1);
-        gc.setStroke(Color.DARKGREY);
-        gc.strokeRect(5,5,390,390);
+//        gc.setLineWidth(1);
+//        gc.setStroke(Color.DARKGREY);
+//        gc.strokeRect(5,5,390,390);
 
-        for (int i = 0; i < 10; i++) {
-            gc.fillRect(10 + i * 10,170, 5, 5);
+
+        for (int r = 0; r < 8; r++) {
+            //jesteśmy w rzędzie o numerze "r"
+            for (int c = 0; c < 8; c++) {
+                //jesteśmy na polu o wsp. (r,c)
+                int x = (r + c) % 2;  //reszta z dzielenia przez 2
+                if (x==0) {
+                    //rysuj jasne pole
+                    gc.setFill(Color.LIGHTGREY);
+                } else {
+                    //rysuj ciemne pole
+                    gc.setFill(Color.rgb(90,90,90));
+                }
+                gc.fillRect(c * 40, r * 40, 40, 40);
+            }
         }
+
 
         //ustawienie rodzaju fontu i wielkości
         gc.setFont(new Font("Droid Sans", 40));
 
         //figurki szachowe są dostępne jako "literki"
         //https://en.wikipedia.org/wiki/Chess_symbols_in_Unicode
+        gc.setFill(Color.BLACK);
 
         String rook = "\u265C";
         String pawn = "\u265F";
