@@ -15,6 +15,36 @@ public class Controller {
     @FXML
     TextField input_kodu;
 
+    String rook = "\u265C";
+    String pawn = "\u265F";
+
+
+    //najprostsza funkcja
+    public int plus(int a, int b) {
+        int x = a + b;
+        return x;
+    }
+
+
+    void rysujFigureSzachowa(int rzad, int kol, int type, boolean isWhite) {
+        GraphicsContext gc = szachycanvas.getGraphicsContext2D();
+        if (isWhite) {
+            gc.setFill(Color.WHITE);
+        } else {
+            gc.setFill(Color.BLACK);
+        }
+        gc.setFont(Font.font ("Verdana", 40));
+        String piece = "x";
+        if (type==1) {
+            piece = pawn;
+        } else if (type==4) {
+            piece = rook;
+        }
+        gc.fillText(piece, kol * 40, 32 + rzad * 40);
+
+    }
+
+
     public void rysujPlansze() {
         GraphicsContext gc = szachycanvas.getGraphicsContext2D();
         gc.setLineWidth(5);     //ustalenie szerokości lini
@@ -47,16 +77,31 @@ public class Controller {
 
 
         //ustawienie rodzaju fontu i wielkości
-        gc.setFont(new Font("Droid Sans", 40));
+        gc.setFont(Font.font ("Arial", 40));
+        gc.setFont(Font.font ("Verdana", 40));
+
+        //wypisuje dostępne fonty
+        System.out.println(javafx.scene.text.Font.getFamilies());
+
+        System.out.println(gc.getFont());
 
         //figurki szachowe są dostępne jako "literki"
         //https://en.wikipedia.org/wiki/Chess_symbols_in_Unicode
         gc.setFill(Color.BLACK);
 
-        String rook = "\u265C";
-        String pawn = "\u265F";
-        gc.fillText(rook, 40,40);
-        gc.fillText(pawn, 140,40);
+        gc.fillText(rook, 0 + 1 * 40, 32 + 0 * 40);
+        gc.fillText(pawn, 0 + 2 * 40, 32 + 5 * 40);
+
+
+
+
+        for (int i = 0; i < 8; i++) {
+            rysujFigureSzachowa(1, i, 1, true);
+            rysujFigureSzachowa(6, i, 1, false);
+        }
+
+        rysujFigureSzachowa(0, 0, 4, true);
+        rysujFigureSzachowa(0, 7, 4, true);
 
     }
 
