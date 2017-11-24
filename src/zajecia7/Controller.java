@@ -1,9 +1,12 @@
 package zajecia7;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -15,6 +18,9 @@ public class Controller {
     @FXML
     TextField input_kodu;
 
+    @FXML
+    ComboBox<String> figury;
+
     String rook = "\u265C";
     String pawn = "\u265F";
 
@@ -23,6 +29,31 @@ public class Controller {
     public int plus(int a, int b) {
         int x = a + b;
         return x;
+    }
+
+    public void initialize() {
+        szachycanvas.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                int x = (int)event.getX();
+                int y = (int)event.getY();
+                System.out.println("Kliknięto na " + x + " , " + y);
+                int rzad = y / 40;
+                int col = x / 40;
+                String wybranaFigura = figury.getSelectionModel().getSelectedItem();
+                System.out.println(wybranaFigura);
+
+                int type = 0;
+                if (wybranaFigura.equals("Pion")) {
+                    type = 1;
+                } else if (wybranaFigura.equals("Wieża")) {
+                    type = 4;
+                }
+                rysujFigureSzachowa(rzad, col, type, false);
+
+
+            }
+        });
     }
 
 
