@@ -32,14 +32,18 @@
 
     <VBox alignment="TOP_LEFT">
         <HBox>
-            <VBox>
-                <Button>Button1</Button>
+            <VBox prefWidth="300">
+                <Button onAction="#getIt">Ustal date prz.</Button>
                 <Button>Button2</Button>
                 <Button>Button3</Button>
-                <DatePicker></DatePicker>
+                <DatePicker fx:id="data_przyjazdu"></DatePicker>
+                <DatePicker fx:id="data_wyjazdu"></DatePicker>
+            </VBox>
+            <VBox>
+                <TextArea fx:id="konsola"></TextArea>
             </VBox>
             <Canvas fx:id="mycanvas"
-                    height="200" width="400" style="-fx-border-style: solid; -fx-border-width: 2px">
+                    height="400" width="100" style="-fx-border-style: solid; -fx-border-width: 2px">
             </Canvas>
         </HBox>
 
