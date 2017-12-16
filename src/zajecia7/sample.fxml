@@ -33,7 +33,7 @@
 
     <VBox alignment="TOP_LEFT">
         <Canvas fx:id="szachycanvas"
-                height="400" width="400" style="-fx-border-style: solid; -fx-border-width: 2px">
+                height="200" width="400" style="-fx-border-style: solid; -fx-border-width: 2px">
 
         </Canvas>
         <VBox alignment="CENTER_LEFT">
@@ -55,8 +55,36 @@
                         <String fx:value="Pion" />
                     </value>
                 </ComboBox>
+
+                <ComboBox fx:id="kolor">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Biały" />
+                            <String fx:value="Czarny" />
+                        </FXCollections>
+                    </items>
+                    <value>
+                        <String fx:value="Biały" />
+                    </value>
+                </ComboBox>
+
+                <Button onAction="#aaa">Podaj kolor</Button>
+
             </HBox>
         </VBox>
+    </VBox>
+    <VBox>
+        <Label>Kalkulator kredytów</Label>
+        <TextField promptText="kwota" fx:id="kwota"></TextField>
+        <TextField promptText="inflacja %" fx:id="inflacja"></TextField>
+        <TextField promptText="oprocentowanie %" fx:id="stopa"></TextField>
+        <TextField promptText="lata" fx:id="lata"></TextField>
+
+        <TextField promptText="kwota (future)" fx:id="future"></TextField>
+        <TextField promptText="kwota (now)" fx:id="now"></TextField>
+
+        <Button onAction="#oblicz">Oblicz</Button>
+
     </VBox>
 
 </VBox>

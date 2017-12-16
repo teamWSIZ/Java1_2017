@@ -1,5 +1,6 @@
 package zajecia7;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
@@ -23,16 +24,26 @@ public class Controller {
     @FXML
     ComboBox<String> figury;
 
+    @FXML
+    ComboBox<String> kolor;
+
+    @FXML
+    TextField kwota;
+    @FXML
+    TextField stopa;
+    @FXML
+    TextField inflacja;
+    @FXML
+    TextField lata;
+    @FXML
+    TextField future;
+    @FXML
+    TextField now;
+
     String rook = "\u265C";
     String pawn = "\u265F";
 
-
-    //najprostsza funkcja
-    public int plus(int a, int b) {
-        int x = a + b;
-        return x;
-    }
-
+    //Funkcja uruchamiana przy starcie aplikacji
     public void initialize() {
         szachycanvas.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
@@ -59,6 +70,20 @@ public class Controller {
     }
 
 
+    public void aaa() {
+        String wybrany = kolor.getSelectionModel().getSelectedItem();
+        System.out.println("Wybrany kolor:" + wybrany);
+    }
+
+
+    //najprostsza funkcja
+    public int plus(int a, int b) {
+        int x = a + b;
+        return x;
+    }
+
+
+    //Funkcja rysująca figurę w odpowiednim miejscu
     void rysujFigureSzachowa(int rzad, int kol, int type, boolean isWhite) {
         GraphicsContext gc = szachycanvas.getGraphicsContext2D();
         if (isWhite) {
@@ -91,6 +116,7 @@ public class Controller {
 //        gc.setStroke(Color.DARKGREY);
 //        gc.strokeRect(5,5,390,390);
 
+        //Rysowanie planszy z prostokątów
 
         for (int r = 0; r < 8; r++) {
             //jesteśmy w rzędzie o numerze "r"
@@ -127,15 +153,45 @@ public class Controller {
 
 
 
-
+        //Dwie linie pionków
         for (int i = 0; i < 8; i++) {
             rysujFigureSzachowa(1, i, 1, true);
             rysujFigureSzachowa(6, i, 1, false);
         }
 
+        //Dwie wieże
         rysujFigureSzachowa(0, 0, 4, true);
         rysujFigureSzachowa(0, 7, 4, true);
 
     }
 
+    ///
+
+
+
+
+    public void oblicz() {
+        double dkwota = Double.valueOf(kwota.getText());
+        double dstopa = Double.valueOf(stopa.getText());
+        double dinflacja = Double.valueOf(inflacja.getText());
+
+        int ilata = Integer.valueOf(lata.getText());
+
+        double inf = dinflacja / 100;
+        double sto = dstopa / 100;
+
+        double total = 0;
+        for (int i = 0; i < ilata; i++) {
+            total += (dkwota) * sto;
+        }
+
+        double doZaplaty = dkwota + total;
+        future.setText("" + (doZaplaty));
+
+
+
+
+
+
+    }
 }

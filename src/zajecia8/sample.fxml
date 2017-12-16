@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="zajecia8.Controller"
+>
+
+    <MenuBar fx:id="menuBar">
+        <menus>
+            <Menu text="File">
+                <items>
+                    <MenuItem text="---" />
+                    <MenuItem text="Otwórz" />
+                    <MenuItem text="---" />
+                </items>
+            </Menu>
+            <Menu text="Edit">
+                <items>
+                    <MenuItem text="Cut" />
+                    <MenuItem text="Copy" />
+                    <SeparatorMenuItem />
+                    <MenuItem text="Paste" />
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+    <VBox alignment="TOP_LEFT">
+        <HBox>
+            <VBox>
+                <Button>Button1</Button>
+                <Button>Button2</Button>
+                <Button>Button3</Button>
+                <DatePicker></DatePicker>
+            </VBox>
+            <Canvas fx:id="mycanvas"
+                    height="200" width="400" style="-fx-border-style: solid; -fx-border-width: 2px">
+            </Canvas>
+        </HBox>
+
+    </VBox>
+
+</VBox>
