@@ -35,7 +35,7 @@
             <VBox prefWidth="300">
                 <Button onAction="#getIt">Ustal date prz.</Button>
                 <Button>Button2</Button>
-                <Button>Button3</Button>
+                <Button onAction="#showDaysBetween"> Dni pobytu</Button>
                 <DatePicker fx:id="data_przyjazdu"></DatePicker>
                 <DatePicker fx:id="data_wyjazdu"></DatePicker>
             </VBox>
