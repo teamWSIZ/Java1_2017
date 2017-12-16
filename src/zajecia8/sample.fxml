@@ -8,6 +8,7 @@
 <VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="zajecia8.Controller"
+      fx:id="mainbox"
 >
 
     <MenuBar fx:id="menuBar">
@@ -30,7 +31,7 @@
         </menus>
     </MenuBar>
 
-    <VBox alignment="TOP_LEFT">
+    <VBox alignment="TOP_LEFT" >
         <HBox>
             <VBox prefWidth="300">
                 <Button onAction="#getIt">Ustal date prz.</Button>
@@ -38,6 +39,8 @@
                 <Button onAction="#showDaysBetween"> Dni pobytu</Button>
                 <DatePicker fx:id="data_przyjazdu"></DatePicker>
                 <DatePicker fx:id="data_wyjazdu"></DatePicker>
+                <Button onAction="#bookIt"> Rezerwuj</Button>
+
             </VBox>
             <VBox>
                 <TextArea fx:id="konsola"></TextArea>

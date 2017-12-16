@@ -1,9 +1,13 @@
 package zajecia8;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -24,9 +28,28 @@ public class Controller {
     @FXML
     TextArea konsola;
 
+
+    @FXML
+    VBox mainbox;
+
     public void initialize() {
         data_przyjazdu.setValue(LocalDate.now());
         data_wyjazdu.setPromptText("data wyjazdu");
+
+
+        Image image = new Image(
+                getClass().getResourceAsStream("Diana_1.jpg"),
+                300, 200, true, false);
+
+
+        BackgroundImage myBI= new BackgroundImage(
+                image,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+//then you set to your node
+        mainbox.setBackground(new Background(myBI));
     }
 
 
@@ -54,6 +77,14 @@ public class Controller {
     }
 
 
+    public void bookIt() {
+        //http://code.makery.ch/blog/javafx-dialogs-official/
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Rezerwacja");
+        alert.setHeaderText(null);
+        alert.setContentText("Dokonano rezerwacji");
 
+        alert.showAndWait();
 
+    }
 }
