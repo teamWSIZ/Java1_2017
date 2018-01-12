@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="zajecia9.Controller"
+      fx:id="mainbox"
+>
+
+    <MenuBar fx:id="menuBar">
+        <menus>
+            <Menu text="File">
+                <items>
+                    <MenuItem text="---" />
+                    <MenuItem text="Otwórz" />
+                    <MenuItem text="---" />
+                </items>
+            </Menu>
+            <Menu text="Edit">
+                <items>
+                    <MenuItem text="Cut" />
+                    <MenuItem text="Copy" />
+                    <SeparatorMenuItem />
+                    <MenuItem text="Paste" />
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+    <HBox>
+        <VBox alignment="TOP_LEFT" prefWidth="150" >
+            <ComboBox fx:id="produkty">
+
+            </ComboBox>
+        </VBox>
+        <VBox>
+            <HBox alignment="BASELINE_CENTER">
+                <!--kwoty wrzucane-->
+                <Button> 5</Button>
+                <Button> 10</Button>
+                <Button> 20</Button>
+                <Button> 50</Button>
+            </HBox>
+            <HBox alignment="BASELINE_CENTER">
+                <Button onAction="#kup"> Kup </Button>
+            </HBox>
+
+            <TextArea fx:id="ekran" prefHeight="400" prefWidth="400">
+
+            </TextArea>
+
+        </VBox>
+    </HBox>
+
+
+
+
+</VBox>
