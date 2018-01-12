@@ -10,7 +10,7 @@ public class A {
 
         System.out.println("łacznie do wydania:" + doWydania);
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10_000_000; i++) {
             int wydaje = 0;
 
             if (doWydania>=10) {
@@ -29,6 +29,8 @@ public class A {
             if (wydaje>0) {
                 System.out.println("wydaje: " + wydaje);
                 doWydania -= wydaje;
+            } else {
+                break;
             }
         }
 
