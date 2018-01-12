@@ -20,6 +20,9 @@ public class Controller {
 
     public void kup() {
         System.out.println("do zaimplementwania");
+
+        String wybrane = (String)produkty.getSelectionModel().getSelectedItem();
+        ekran.appendText("Wybrano: " + wybrane + "\n");
     }
 
 }
