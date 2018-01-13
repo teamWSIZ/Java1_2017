@@ -2,6 +2,7 @@ package zajecia9;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 public class Controller {
@@ -11,36 +12,91 @@ public class Controller {
     @FXML
     ComboBox produkty;
 
+    @FXML
+    Label wplataLabel;
+
+    @FXML
+    Label cenaLabel;
+
     int wrzuconaKwota = 0;
+    int cenaProduktu = 0;
 
     //Ta funkcja jest uruchamiana zaraz na początku działania okna
     public void initialize() {
         //więcej: https://docs.oracle.com/javafx/2/ui_controls/combo-box.htm
-        produkty.getItems().addAll("Pomarańcza", "Jabłko", "Kiwi", "Gruszka", "Granat");
+        produkty.getItems().addAll(
+                "Banan", "Pomarańcza", "Jabłko", "Kiwi", "Gruszka",
+                "Granat");
         produkty.getSelectionModel().select(0);
     }
 
-    public void kup() {
-
-        String wybrane = (String)produkty.getSelectionModel().getSelectedItem();
+    public void wybierz() {
+        //tu dostajemy nazwę (napis) wybranego produktu
+        String wybrane = (String)produkty.getSelectionModel()
+                .getSelectedItem();
         ekran.appendText("Wybrano: " + wybrane + "\n");
 
-        int cena = 0;
         if (wybrane=="Pomarańcza") {
-            cena = 10;
+            cenaProduktu = 10;
         } else if (wybrane=="Jabłko") {
-            cena = 7;
+            cenaProduktu = 7;
         } else if (wybrane=="Kiwi") {
-            cena = 15;
+            cenaProduktu = 15;
+        } else if (wybrane=="Gruszka") {
+            cenaProduktu = 16;
+        } else if (wybrane=="Banan") {
+            cenaProduktu = 6;
+        } else if (wybrane=="Granat") {
+            cenaProduktu = 17;
         }
 
-        ekran.appendText("Cena:" + cena + "\n");
-
+        ekran.appendText("Cena:" + cenaProduktu + "\n");
+        cenaLabel.setText(" " + cenaProduktu);
     }
 
-    public void insterFive() {
+    public void kup() {
+        if (wrzuconaKwota < cenaProduktu) {
+            ekran.appendText("Niewystarczająca kwota wpłacona; proszę" +
+                    " dodać " + (cenaProduktu - wrzuconaKwota) + "!\n");
+        }
+
+        /// kupowanie!!
+        int doWydania = wrzuconaKwota - cenaProduktu;
+
+        for (int i = 0; i < 100; i++) {
+            if (doWydania>=10) {
+                doWydania -= 10;
+                ekran.appendText("wydaję 10\n");
+            }
+            else if (doWydania>=5) {
+                doWydania -= 5;
+                ekran.appendText("wydaję 5\n");
+            }
+            else if (doWydania>=2) {
+                doWydania -= 2;
+                ekran.appendText("wydaję 2\n");
+            }
+            else if (doWydania>=1) {
+                doWydania -= 1;
+                ekran.appendText("wydaję 1\n");
+            }
+        }
+        ekran.appendText("Odbierz produkt!\n");
+    }
+
+    public void czysc() {
+        ekran.setText("");
+    }
+
+    public void insertFive() {
         wrzuconaKwota += 5;
         ekran.appendText("Wrzucono 5; łącznie:" + wrzuconaKwota + "\n");
+        wplataLabel.setText(" " + wrzuconaKwota);
+    }
+    public void insertTen() {
+        wrzuconaKwota += 10;
+        ekran.appendText("Wrzucono 10; łącznie:" + wrzuconaKwota + "\n");
+        wplataLabel.setText(" " + wrzuconaKwota);
     }
 
 }
