@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 
 public class Controller {
     @FXML
@@ -28,6 +29,9 @@ public class Controller {
                 "Banan", "Pomarańcza", "Jabłko", "Kiwi", "Gruszka",
                 "Granat");
         produkty.getSelectionModel().select(0);
+
+        //
+
     }
 
     public void wybierz() {

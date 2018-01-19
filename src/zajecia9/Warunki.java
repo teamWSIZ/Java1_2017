@@ -12,6 +12,7 @@ public class Warunki {
             System.out.println("średnia liczba");
         }
         else {
+
             System.out.println("mała liczba");
         }
     }

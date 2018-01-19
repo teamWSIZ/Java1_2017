@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.collections.FXCollections?>
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import java.lang.*?>
 <VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="zajecia8.Controller"
@@ -48,6 +46,9 @@
             <Canvas fx:id="mycanvas"
                     height="400" width="100" style="-fx-border-style: solid; -fx-border-width: 2px">
             </Canvas>
+            <VBox prefWidth="300" fx:id="rightBox">
+                <Button fx:id="innyButton"></Button>
+            </VBox>
         </HBox>
 
     </VBox>
