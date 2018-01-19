@@ -33,6 +33,12 @@
         <VBox alignment="TOP_LEFT" prefWidth="150" >
             <ComboBox fx:id="produkty">
             </ComboBox>
+            <VBox>
+                <Label>Jabłko</Label>
+                <Label>Kiwi</Label>
+                <Label>Gruszka</Label>
+                <Button fx:id="appleButton"></Button>
+            </VBox>
         </VBox>
         <VBox>
             <HBox alignment="BASELINE_CENTER">

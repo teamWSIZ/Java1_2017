@@ -1,10 +1,12 @@
 package zajecia9;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Controller {
     @FXML
@@ -19,6 +21,9 @@ public class Controller {
     @FXML
     Label cenaLabel;
 
+    @FXML
+    Button appleButton;
+
     int wrzuconaKwota = 0;
     int cenaProduktu = 0;
 
@@ -30,7 +35,10 @@ public class Controller {
                 "Granat");
         produkty.getSelectionModel().select(0);
 
-        //
+        //układanie ikon pod przyciski produktów
+        Image icon = new Image(getClass().getResourceAsStream("kiwi.jpg"), 75, 75, true, true);
+        appleButton.setGraphic(new ImageView(icon));
+
 
     }
 
