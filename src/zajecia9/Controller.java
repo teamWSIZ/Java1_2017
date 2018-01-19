@@ -23,6 +23,8 @@ public class Controller {
 
     @FXML
     Button appleButton;
+    @FXML
+    Button pearButton;
 
     int wrzuconaKwota = 0;
     int cenaProduktu = 0;
@@ -36,8 +38,14 @@ public class Controller {
         produkty.getSelectionModel().select(0);
 
         //układanie ikon pod przyciski produktów
-        Image icon = new Image(getClass().getResourceAsStream("kiwi.jpg"), 75, 75, true, true);
+        Image icon = new Image(getClass().getResourceAsStream("kiwi.jpg"),
+                75, 75, true, true);
         appleButton.setGraphic(new ImageView(icon));
+        pearButton.setGraphic(
+                new ImageView(new Image(getClass().getResourceAsStream("pear.png"),
+                75, 75, true, true))
+        );
+        //inne:http://www.iconarchive.com/search?q=fruits
 
 
     }
@@ -65,6 +73,22 @@ public class Controller {
         ekran.appendText("Cena:" + cenaProduktu + "\n");
         cenaLabel.setText(" " + cenaProduktu);
     }
+
+
+    public void selectPear() {
+       selectFruit("Gruszka");
+    }
+    public void selectKiwi() {
+        selectFruit("Kiwi");
+    }
+
+
+
+    private void selectFruit(String name) {
+        produkty.getSelectionModel().select(name);
+        wybierz();
+    }
+
 
     public void kup() {
         if (wrzuconaKwota < cenaProduktu) {

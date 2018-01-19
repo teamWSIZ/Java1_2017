@@ -37,7 +37,8 @@
                 <Label>Jabłko</Label>
                 <Label>Kiwi</Label>
                 <Label>Gruszka</Label>
-                <Button fx:id="appleButton"></Button>
+                <Button fx:id="appleButton" onAction="#selectKiwi"></Button>
+                <Button fx:id="pearButton" onAction="#selectPear"></Button>
             </VBox>
         </VBox>
         <VBox>
