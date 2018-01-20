@@ -41,19 +41,19 @@
             <ComboBox fx:id="produkty">
             </ComboBox>
 
-         <GridPane>
-            <children>
-                <Button fx:id="kiwiButton" onAction="#selectKiwi"
-                        GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                <Button fx:id="appleButton" onAction="#selectKiwi"
-                        GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-                <Button fx:id="pearButton" onAction="#selectPear"
-                        GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                <Button fx:id="bananaButton"
-                        GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-            </children>
-         </GridPane>
-            
+            <GridPane>
+                <children>
+                    <Button fx:id="kiwiButton" onAction="#selectKiwi"
+                            GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Button fx:id="appleButton" onAction="#selectKiwi"
+                            GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    <Button fx:id="pearButton" onAction="#selectPear"
+                            GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <Button fx:id="bananaButton"
+                            GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                </children>
+            </GridPane>
+
         </VBox>
         <VBox>
             <HBox alignment="BASELINE_CENTER">
@@ -69,12 +69,22 @@
                 <Button onAction="#kup"> Kup </Button>
                 <Button onAction="#czysc"> Czyść ekran</Button>
             </HBox>
-            <HBox>
-                <Label>Wpłacono:</Label>
-                <Label fx:id="wplataLabel">0</Label>
-                <Label>     Cena produktu:</Label>
-                <Label fx:id="cenaLabel">0</Label>
-            </HBox>
+            <GridPane>
+                <children>
+                    <HBox GridPane.columnIndex="0">
+                        <Label style="-fx-font-size: 20">Kredyt:</Label>
+                        <Label style="-fx-font-size: 20"  fx:id="wplataLabel">0</Label>
+                    </HBox>
+                    <HBox GridPane.columnIndex="1">
+                        <Label style="-fx-font-size: 20">Cena produktu:</Label>
+                        <Label style="-fx-font-size: 20" fx:id="cenaLabel">0</Label>
+                    </HBox>
+                </children>
+                <columnConstraints>
+                    <ColumnConstraints  prefWidth="200.0" />
+                    <ColumnConstraints  prefWidth="200.0" />
+                </columnConstraints>
+            </GridPane>
 
             <TextArea fx:id="ekran" prefHeight="400" prefWidth="400">
 
