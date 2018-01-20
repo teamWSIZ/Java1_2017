@@ -24,6 +24,8 @@ public class Controller {
     @FXML
     Button appleButton;
     @FXML
+    Button kiwiButton;
+    @FXML
     Button pearButton;
     @FXML
     Button bananaButton;
@@ -40,15 +42,19 @@ public class Controller {
         produkty.getSelectionModel().select(0);
 
         //układanie ikon pod przyciski produktów
-        Image icon = new Image(getClass().getResourceAsStream("kiwi.jpg"),
+        Image icon = new Image(getClass().getResourceAsStream("kiwi.png"),
                 75, 75, true, true);
-        appleButton.setGraphic(new ImageView(icon));
+        kiwiButton.setGraphic(new ImageView(icon));
         pearButton.setGraphic(
                 new ImageView(new Image(getClass().getResourceAsStream("pear.png"),
                 75, 75, true, true))
         );
         bananaButton.setGraphic(
                 new ImageView(new Image(getClass().getResourceAsStream("banana.png"),
+                        75, 75, true, true))
+        );
+        appleButton.setGraphic(
+                new ImageView(new Image(getClass().getResourceAsStream("apple.png"),
                         75, 75, true, true))
         );
         //inne:http://www.iconarchive.com/search?q=fruits
