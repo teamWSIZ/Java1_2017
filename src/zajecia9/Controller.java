@@ -93,7 +93,12 @@ public class Controller {
     public void selectKiwi() {
         selectFruit("Kiwi");
     }
-
+    public void selectBanana() {
+        selectFruit("Banan");
+    }
+    public void selectApple() {
+        selectFruit("Jabłko");
+    }
 
 
     private void selectFruit(String name) {

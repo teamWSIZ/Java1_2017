@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -16,25 +13,6 @@
 
 <VBox fx:id="mainbox" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zajecia9.Controller">
 
-    <MenuBar fx:id="menuBar">
-        <menus>
-            <Menu text="File">
-                <items>
-                    <MenuItem text="---" />
-                    <MenuItem text="Otwórz" />
-                    <MenuItem text="---" />
-                </items>
-            </Menu>
-            <Menu text="Edit">
-                <items>
-                    <MenuItem text="Cut" />
-                    <MenuItem text="Copy" />
-                    <SeparatorMenuItem />
-                    <MenuItem text="Paste" />
-                </items>
-            </Menu>
-        </menus>
-    </MenuBar>
 
     <HBox>
         <VBox alignment="TOP_LEFT" prefWidth="250">
@@ -43,15 +21,19 @@
 
             <GridPane>
                 <children>
-                    <Button fx:id="kiwiButton" onAction="#selectKiwi"
-                            GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                    <Button fx:id="appleButton" onAction="#selectKiwi"
-                            GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-                    <Button fx:id="pearButton" onAction="#selectPear"
-                            GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                    <Button fx:id="bananaButton"
-                            GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <Button fx:id="kiwiButton" onAction="#selectKiwi" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Button fx:id="appleButton" onAction="#selectApple" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <Button fx:id="pearButton" onAction="#selectPear" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Button fx:id="bananaButton" onAction="#selectBanana" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 </children>
+                <columnConstraints>
+                    <ColumnConstraints />
+                    <ColumnConstraints />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                    <RowConstraints />
+                </rowConstraints>
             </GridPane>
 
         </VBox>
@@ -70,23 +52,31 @@
                 <Button onAction="#czysc"> Czyść ekran</Button>
             </HBox>
             <GridPane>
+
                 <children>
                     <HBox GridPane.columnIndex="0">
                         <Label style="-fx-font-size: 20">Kredyt:</Label>
-                        <Label style="-fx-font-size: 20"  fx:id="wplataLabel">0</Label>
+                        <Label fx:id="wplataLabel" style="-fx-font-size: 20">0</Label>
+
                     </HBox>
                     <HBox GridPane.columnIndex="1">
                         <Label style="-fx-font-size: 20">Cena produktu:</Label>
-                        <Label style="-fx-font-size: 20" fx:id="cenaLabel">0</Label>
+                        <Label fx:id="cenaLabel" style="-fx-font-size: 20">0</Label>
                     </HBox>
                 </children>
                 <columnConstraints>
-                    <ColumnConstraints  prefWidth="200.0" />
-                    <ColumnConstraints  prefWidth="200.0" />
+                    <ColumnConstraints prefWidth="200.0" />
+                    <ColumnConstraints prefWidth="200.0" />
                 </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                </rowConstraints>
+            <VBox.margin>
+               <Insets bottom="10.0" top="10.0" />
+            </VBox.margin>
             </GridPane>
 
-            <TextArea fx:id="ekran" prefHeight="400" prefWidth="400">
+            <TextArea fx:id="ekran" prefHeight="200" prefWidth="400">
 
             </TextArea>
 
