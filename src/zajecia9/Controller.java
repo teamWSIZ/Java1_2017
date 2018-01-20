@@ -25,6 +25,8 @@ public class Controller {
     Button appleButton;
     @FXML
     Button pearButton;
+    @FXML
+    Button bananaButton;
 
     int wrzuconaKwota = 0;
     int cenaProduktu = 0;
@@ -44,6 +46,10 @@ public class Controller {
         pearButton.setGraphic(
                 new ImageView(new Image(getClass().getResourceAsStream("pear.png"),
                 75, 75, true, true))
+        );
+        bananaButton.setGraphic(
+                new ImageView(new Image(getClass().getResourceAsStream("banana.png"),
+                        75, 75, true, true))
         );
         //inne:http://www.iconarchive.com/search?q=fruits
 

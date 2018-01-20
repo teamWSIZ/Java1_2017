@@ -39,6 +39,7 @@
                 <Label>Gruszka</Label>
                 <Button fx:id="appleButton" onAction="#selectKiwi"></Button>
                 <Button fx:id="pearButton" onAction="#selectPear"></Button>
+                <Button fx:id="bananaButton"></Button>
             </VBox>
         </VBox>
         <VBox>
