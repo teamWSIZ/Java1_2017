@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox fx:id="mainbox" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="zajecia_10.Controller">
+
+
+    <HBox>
+            <GridPane fx:id="board">
+                <children>
+                    <!--<Button fx:id="kiwiButton"  GridPane.columnIndex="0" GridPane.rowIndex="0" />-->
+                    <!--<Button fx:id="appleButton"   GridPane.columnIndex="1" GridPane.rowIndex="0" />-->
+                    <!--<Button fx:id="pearButton"  GridPane.columnIndex="0" GridPane.rowIndex="1" />-->
+                    <!--<Button fx:id="bananaButton"   GridPane.columnIndex="1" GridPane.rowIndex="1" />-->
+                </children>
+                <columnConstraints>
+                    <ColumnConstraints />
+                    <ColumnConstraints />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                    <RowConstraints />
+                </rowConstraints>
+            </GridPane>
+    </HBox>
+
+
+</VBox>
