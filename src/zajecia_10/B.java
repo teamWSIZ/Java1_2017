@@ -14,10 +14,32 @@ public class B {
         }
 
         for (int i = 0; i < a.length; i++) {
-            a[i] = 10 - i; 
+            a[i] = 10 - i;
+        }
+
+        for (int i = 0; i < a.length; i++) {
+            a[i] = 1 + i;
+        }
+
+        for (int i = 0; i < 5; i++) {
+            a[i] = 1 + i;
+            a[9-i] = 1 + i;
         }
 
         System.out.println(Arrays.toString(a));
+
+        System.out.println("--------------");
+        //----------------------------------
+
+        //deklaracja i inicjacja tablicy dwu-wymiarowej
+        int[][] d = new int[][]{{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+
+        d[1][2] = 13;   //przypisanie wartości w rzędzie "1", kolumnie "2" (licząc od zera)
+
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println(Arrays.toString(d[i]));
+        }
 
 
     }
