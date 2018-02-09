@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
 
 import java.util.Arrays;
@@ -43,6 +44,11 @@ public class Controller {
                         System.out.println(Arrays.toString(b[i]));
                     }
                     System.out.println("----------");
+                });
+                button.setOnMouseClicked(event -> {
+                    if (event.getButton()== MouseButton.SECONDARY) {
+                        System.out.println("Naciśnięto prawym przyciskiem");
+                    }
                 });
             }
         }

@@ -1,0 +1,5 @@
+
+- zmiana koloru pionka po ruchu (poprawnym)
+- wyświetlenie wyniku
+- przycisk nowej gry
+-

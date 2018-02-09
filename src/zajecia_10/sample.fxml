@@ -7,7 +7,7 @@
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="zajecia_10.Controller">
 
 
-    <HBox>
+    <HBox alignment="CENTER">
             <GridPane fx:id="board">
                 <children>
                     <!--<Button fx:id="kiwiButton"  GridPane.columnIndex="0" GridPane.rowIndex="0" />-->
