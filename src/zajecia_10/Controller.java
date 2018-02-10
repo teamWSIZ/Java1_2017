@@ -33,18 +33,19 @@ public class Controller {
                         75, 75, true, true)));
 
         //to jest kod dodający przyciski tworzące planszę na GUI
-        for (int r = 0; r < 3; r++) {
-            for (int c = 0; c < 3; c++) {
+        for (int row = 0; row < 3; row++) {
+            for (int column = 0; column < 3; column++) {
                 //to się nazywa "programmatic" gui construction
                 Button button = new Button();
                 button.setGraphic(
                         new ImageView(new Image(getClass()
                                 .getResourceAsStream("blank.png"),
                                 75, 75, true, true)));
-                board.add(button, c, r ); //tutaj dynamicznie dodajemy przycisk do GridPane
+                board.add(button, column, row ); //tutaj dynamicznie dodajemy przycisk do GridPane
 
-                Integer rr = r;
-                Integer cc = c;
+                Integer rr = row;
+                Integer cc = column;
+                //tutaj doczepiamy akcje (normalnie "onAction" w fxml-u)
                 button.setOnAction(event -> {
                     System.out.println("Naciścięto button nr: " + rr + ", " + cc);
                     if (b[rr][cc]!=0) return;   //jeśli pole już zajęte -- nie rób nic
