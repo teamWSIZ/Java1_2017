@@ -1,10 +1,8 @@
 package zajecia_10;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -77,6 +75,8 @@ public class Controller {
                 button.setOnMouseClicked(event -> {
                     if (event.getButton()== MouseButton.SECONDARY) {
                         System.out.println("Naciśnięto prawym przyciskiem");
+                        //showEndOfGameDialog();
+                        clearAllBoardButtons();
                     }
                 });
             }
@@ -91,4 +91,35 @@ public class Controller {
                         .getResourceAsStream(filename), 95, 95, true, true)));
     }
 
+    //http://code.makery.ch/blog/javafx-dialogs-official/
+    private void showEndOfGameDialog() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Koniec gry");
+        alert.setHeaderText("Obecna rozgrywka została zakończona");
+        alert.setContentText("Wszystkie pola planszy są zajęte");
+
+        alert.showAndWait();
+    }
+
+    private void clearAllBoardButtons() {
+        board.getChildren().forEach(n ->{
+            Button b = (Button)n;
+            b.setGraphic(
+                    new ImageView(new Image(getClass()
+                            .getResourceAsStream("blank.png"),
+                            75, 75, true, true)));
+        });
+    }
+
+    public void restart() {
+        clearAllBoardButtons();
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                b[row][col] = 0;
+            }
+        }
+        nextPlayer = 1;
+        //+ narysować nową ikonkę...
+
+    }
 }

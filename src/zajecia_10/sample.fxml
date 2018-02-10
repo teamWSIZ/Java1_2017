@@ -27,6 +27,7 @@
             <VBox style="-fx-padding: 75px">
                 <Button fx:id="nextPlayerButton"/>
                 <Label style="-fx-font-size: 20">Next player</Label>
+                <Button fx:id="restartButton" onAction="#restart">Restart</Button>
             </VBox>
     </HBox>
 
