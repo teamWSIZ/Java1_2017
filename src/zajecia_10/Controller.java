@@ -53,29 +53,30 @@ public class Controller {
                     b[rr][cc] = nextPlayer;     //update modelu gry
 
                     //ustawienie odpowiedniej ikony tam, gdzie kliknięto
+                    String filename;
                     if (nextPlayer==1) {
-                        button.setGraphic(new ImageView(new Image(getClass()
-                                .getResourceAsStream("kiwi.png"),
-                                75, 75, true, true)));
-                    } else {
-                        button.setGraphic(new ImageView(new Image(getClass()
-                                .getResourceAsStream("banana.png"),
-                                75, 75, true, true)));
-                    }
-
-                    //update numeru następnego gracza
-                    if (nextPlayer==1) {
+                        filename = "kiwi.png";
                         nextPlayer = 2;
                     } else {
+                        filename = "banana.png";
                         nextPlayer = 1;
                     }
 
+                    //ustawienie obrazka na planszy
+                    button.setGraphic(new ImageView(new Image(getClass()
+                            .getResourceAsStream(filename),75, 75, true, true)));
+
                     //update ikony następnego gracza
-                    String nextPlayerIcon = "kiwi.png";
-                    if (nextPlayer==2) nextPlayerIcon = "banana.png";
+                    String nextPlayerIcon;
+                    if (nextPlayer==2) {
+                        nextPlayerIcon = "banana.png";
+                    } else {
+                        nextPlayerIcon = "kiwi.png";
+                    }
+
+                    //rysowanie ikony następnego gracza
                     nextPlayerButton.setGraphic(new ImageView(new Image(getClass()
-                            .getResourceAsStream(nextPlayerIcon),
-                            75, 75, true, true)));
+                            .getResourceAsStream(nextPlayerIcon),75, 75, true, true)));
                 });
                 button.setOnMouseClicked(event -> {
                     if (event.getButton()== MouseButton.SECONDARY) {
