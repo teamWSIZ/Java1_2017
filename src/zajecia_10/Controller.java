@@ -27,10 +27,7 @@ public class Controller {
         b = new int[][]{{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
 
         //początkowa ikona następnego ruchu
-        nextPlayerButton.setGraphic(
-                new ImageView(new Image(getClass()
-                        .getResourceAsStream("kiwi.png"),
-                        75, 75, true, true)));
+        drawNextPlayerButton("kiwi.png");
 
         //to jest kod dodający przyciski tworzące planszę na GUI
         for (int row = 0; row < 3; row++) {
@@ -67,16 +64,15 @@ public class Controller {
                             .getResourceAsStream(filename),75, 75, true, true)));
 
                     //update ikony następnego gracza
-                    String nextPlayerIcon;
+                    String nextPlayerIconFilename;
                     if (nextPlayer==2) {
-                        nextPlayerIcon = "banana.png";
+                        nextPlayerIconFilename = "banana.png";
                     } else {
-                        nextPlayerIcon = "kiwi.png";
+                        nextPlayerIconFilename = "kiwi.png";
                     }
 
                     //rysowanie ikony następnego gracza
-                    nextPlayerButton.setGraphic(new ImageView(new Image(getClass()
-                            .getResourceAsStream(nextPlayerIcon),75, 75, true, true)));
+                    drawNextPlayerButton(nextPlayerIconFilename);
                 });
                 button.setOnMouseClicked(event -> {
                     if (event.getButton()== MouseButton.SECONDARY) {
@@ -86,6 +82,13 @@ public class Controller {
             }
         }
 
+    }
+
+    //definicja lokalnej funkcji
+    private void drawNextPlayerButton(String filename) {
+        nextPlayerButton.setGraphic(
+                new ImageView(new Image(getClass()
+                        .getResourceAsStream(filename), 95, 95, true, true)));
     }
 
 }

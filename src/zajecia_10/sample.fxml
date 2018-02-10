@@ -24,9 +24,9 @@
                     <RowConstraints />
                 </rowConstraints>
             </GridPane>
-            <VBox alignment="CENTER_RIGHT">
-                <Label>Next player</Label>
+            <VBox style="-fx-padding: 75px">
                 <Button fx:id="nextPlayerButton"/>
+                <Label style="-fx-font-size: 20">Next player</Label>
             </VBox>
     </HBox>
 
