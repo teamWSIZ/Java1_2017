@@ -5,7 +5,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
 
 public class Controller {
@@ -17,7 +16,7 @@ public class Controller {
 
     int[][] b;  //ta tablica zawiera informacje o stanie gry w postaci liczb całkowitych 0,1,2
     int nextPlayer = 1;
-    boolean gameIsNotOver;
+    boolean gameOver;
 
     //Ta funkcja jest uruchamiana zaraz na początku działania okna
     public void initialize() {
@@ -25,7 +24,7 @@ public class Controller {
 
         //początkowa ikona następnego ruchu
         drawNextPlayerButton("kiwi.png");
-        gameIsNotOver = true;   //gra trwa
+        gameOver = false;   //gra trwa
 
         //to jest kod dodający przyciski tworzące planszę na GUI
         for (int row = 0; row < 3; row++) {
@@ -39,6 +38,7 @@ public class Controller {
                 Integer cc = column;
                 //tutaj doczepiamy akcje (normalnie "onAction" w fxml-u)
                 button.setOnAction(event -> {
+                    if (gameOver) return;
                     if (b[rr][cc]!=0) return;   //jeśli pole już zajęte -- nie rób nic
                     b[rr][cc] = nextPlayer;     //update modelu gry
 
@@ -63,10 +63,12 @@ public class Controller {
     private void checkGameOver() {
         int winner = getWinner(b);
         if (winner != 0) {
+            gameOver = true;
             showGameWonDialog(winner);
             return;
         }
         if (areAllFieldsFilled(b)) {
+            gameOver = true;
             showEndOfGameDialog();
         }
     }
@@ -126,6 +128,7 @@ public class Controller {
             }
         }
         nextPlayer = 1;
+        gameOver = false;
         //+ narysować nową ikonkę...
     }
 
