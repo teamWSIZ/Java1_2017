@@ -8,7 +8,7 @@
 
 
     <HBox alignment="CENTER">
-            <GridPane fx:id="board">
+            <GridPane fx:id="gridPane">
                 <children>
                     <!--<Button fx:id="kiwiButton"  GridPane.columnIndex="0" GridPane.rowIndex="0" />-->
                     <!--<Button fx:id="appleButton"   GridPane.columnIndex="1" GridPane.rowIndex="0" />-->

@@ -10,7 +10,7 @@ import javafx.scene.layout.GridPane;
 public class Controller {
 
     @FXML
-    GridPane board;
+    GridPane gridPane;
     @FXML
     Button nextPlayerButton;
 
@@ -28,14 +28,13 @@ public class Controller {
 
         //to jest kod dodający przyciski tworzące planszę na GUI
         for (int row = 0; row < 3; row++) {
-            for (int column = 0; column < 3; column++) {
-                //to się nazywa "programmatic" gui construction
+            for (int col = 0; col < 3; col++) {
                 Button button = new Button();
                 drawIconOnButton(button, "blank.png");
-                board.add(button, column, row ); //tutaj dynamicznie dodajemy przycisk do GridPane
+                gridPane.add(button, col, row );   //tutaj dynamicznie dodajemy przycisk do GridPane
 
                 Integer rr = row;
-                Integer cc = column;
+                Integer cc = col;
                 //tutaj doczepiamy akcje (normalnie "onAction" w fxml-u)
                 button.setOnAction(event -> {
                     if (gameOver) return;
@@ -43,16 +42,15 @@ public class Controller {
                     b[rr][cc] = nextPlayer;     //update modelu gry
 
                     //ustawienie odpowiedniej ikony tam, gdzie kliknięto
-                    String filename = getIconFilenameForPlayer(nextPlayer);
+                    String filename = getIconFilename(nextPlayer);
                     drawIconOnButton(button, filename);
 
                     nextPlayer = 3 - nextPlayer; //jeśli było 2 to teraz 1; jeśli było 1 to teraz 2
 
-
                     //update ikony następnego gracza
-                    filename = getIconFilenameForPlayer(nextPlayer);
-                    //rysowanie ikony następnego gracza
+                    filename = getIconFilename(nextPlayer);
                     drawNextPlayerButton(filename);
+
                     checkGameOver();
                 });
             }
@@ -76,17 +74,14 @@ public class Controller {
 
     //Rysuje podaną ikonę na podanym buttonie
     private void drawIconOnButton(Button button, String filename) {
-        button.setGraphic(
-                new ImageView(new Image(getClass()
-                        .getResourceAsStream(filename),
-                        75, 75, true, true)));
+        Image image = new Image(getClass().getResourceAsStream(filename), 75, 75, true, true);
+        button.setGraphic(new ImageView(image));
     }
 
     //definicja lokalnej funkcji
     private void drawNextPlayerButton(String filename) {
-        nextPlayerButton.setGraphic(
-                new ImageView(new Image(getClass()
-                        .getResourceAsStream(filename), 95, 95, true, true)));
+        Image image = new Image(getClass().getResourceAsStream(filename), 95, 95, true, true);
+        nextPlayerButton.setGraphic(new ImageView(image));
     }
 
     //http://code.makery.ch/blog/javafx-dialogs-official/
@@ -114,12 +109,13 @@ public class Controller {
     }
 
     private void clearAllBoardButtons() {
-        board.getChildren().forEach(n ->{
+        gridPane.getChildren().forEach(n ->{
             Button b = (Button)n;
             drawIconOnButton(b, "blank.png");
         });
     }
 
+    //Funkcja wykonywana do restartu gry; czyści buttony, tablicę danych "b", ustawia gracza, i rozpoczyna grę
     public void restart() {
         clearAllBoardButtons();
         for (int row = 0; row < 3; row++) {
@@ -132,7 +128,7 @@ public class Controller {
         //+ narysować nową ikonkę...
     }
 
-    private String getIconFilenameForPlayer(int player) {
+    private String getIconFilename(int player) {
         if (player==1) {
             return "kiwi.png";
         } else {
@@ -172,9 +168,11 @@ public class Controller {
                 }
                 if (x==3) return typ;
             }
+            //sprawdzamy diagonalę
             if (b[0][0]==b[1][1] && b[1][1]==b[2][2]) {
                 if (b[1][1]==typ) return typ;
             }
+            //sprawdzamy anty-diagonalę
             if (b[0][2]==b[1][1] && b[1][1]==b[2][0]) {
                 if (b[1][1]==typ) return typ;
             }
