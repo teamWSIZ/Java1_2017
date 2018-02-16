@@ -1,14 +1,12 @@
 package zajecia_10;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
-
-import java.util.Arrays;
 
 public class Controller {
 
@@ -17,7 +15,7 @@ public class Controller {
     @FXML
     Button nextPlayerButton;
 
-    int[][] b;
+    int[][] b;  //ta tablica zawiera informacje o stanie gry w postaci liczb całkowitych 0,1,2
     int nextPlayer = 1;
 
     //Ta funkcja jest uruchamiana zaraz na początku działania okna
