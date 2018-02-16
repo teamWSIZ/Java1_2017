@@ -71,6 +71,9 @@ public class Controller {
 
                     //rysowanie ikony następnego gracza
                     drawNextPlayerButton(nextPlayerIconFilename);
+                    if (areAllFieldsFilled(b)) {
+                        showEndOfGameDialog();
+                    }
                 });
                 button.setOnMouseClicked(event -> {
                     if (event.getButton()== MouseButton.SECONDARY) {
@@ -120,6 +123,17 @@ public class Controller {
         }
         nextPlayer = 1;
         //+ narysować nową ikonkę...
+    }
 
+    //Sprawdza czy wszystkie elementy tablicy "g" są != 0
+    private boolean areAllFieldsFilled(int[][] g) {
+        for (int row = 0; row < g.length; row++) {
+            for (int col = 0; col < g[row].length; col++) {
+                if (g[row][col]==0) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
