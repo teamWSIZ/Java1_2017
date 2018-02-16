@@ -70,6 +70,12 @@ public class Controller {
 
                     //rysowanie ikony następnego gracza
                     drawNextPlayerButton(nextPlayerIconFilename);
+
+                    int winner = getWinner(b);
+                    if (winner != 0) {
+                        showGameWonDialog(winner);
+                        return;
+                    }
                     if (areAllFieldsFilled(b)) {
                         showEndOfGameDialog();
                     }
@@ -96,9 +102,24 @@ public class Controller {
     //http://code.makery.ch/blog/javafx-dialogs-official/
     private void showEndOfGameDialog() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Koniec gry");
-        alert.setHeaderText("Obecna rozgrywka została zakończona");
-        alert.setContentText("Wszystkie pola planszy są zajęte");
+        alert.setTitle("Game over");
+        alert.setHeaderText("Current game came to an end");
+        alert.setContentText("All fields are filled; no winner; game is a draw!");
+
+        alert.showAndWait();
+    }
+
+    private void showGameWonDialog(int winner) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        String thewinner;
+        if (winner==1) {
+            thewinner = "Kiwi";
+        } else {
+            thewinner = "Banana";
+        }
+        alert.setTitle("Game over");
+        alert.setHeaderText("Current game came to an end");
+        alert.setContentText(thewinner  + " is the winner! Congratulations!");
 
         alert.showAndWait();
     }
@@ -134,5 +155,36 @@ public class Controller {
             }
         }
         return true;
+    }
+
+    //Podaje kto wygrał (1 lub 2); jeśli nie ma zwycięzcy, zwraca 0
+    public int getWinner(int[][] b) {
+
+        for (int typ = 1; typ <=2 ; typ++) {
+            //sprawdzamy rzędy
+            for (int r = 0; r < 3; r++) {
+                int x = 0;
+                for (int c = 0; c < 3; c++) {
+                    if (b[r][c]==typ) x++;
+                }
+                if (x==3) return typ;
+            }
+            //sprawdzamy kolumny
+            for (int c = 0; c < 3; c++) {
+                int x = 0;
+                for (int r = 0; r < 3; r++) {
+                    if (b[r][c]==typ) x++;
+                }
+                if (x==3) return typ;
+            }
+            if (b[0][0]==b[1][1] && b[1][1]==b[2][2]) {
+                if (b[1][1]==typ) return typ;
+            }
+            if (b[0][2]==b[1][1] && b[1][1]==b[2][0]) {
+                if (b[1][1]==typ) return typ;
+            }
+        }
+
+        return 0;
     }
 }
