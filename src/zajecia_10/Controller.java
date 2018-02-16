@@ -30,66 +30,52 @@ public class Controller {
             for (int column = 0; column < 3; column++) {
                 //to się nazywa "programmatic" gui construction
                 Button button = new Button();
-                button.setGraphic(
-                        new ImageView(new Image(getClass()
-                                .getResourceAsStream("blank.png"),
-                                75, 75, true, true)));
+                drawIconOnButton(button, "blank.png");
                 board.add(button, column, row ); //tutaj dynamicznie dodajemy przycisk do GridPane
 
                 Integer rr = row;
                 Integer cc = column;
                 //tutaj doczepiamy akcje (normalnie "onAction" w fxml-u)
                 button.setOnAction(event -> {
-                    //todo: kod poniżej trzeba zrefaktorować
-                    System.out.println("Naciścięto button nr: " + rr + ", " + cc);
                     if (b[rr][cc]!=0) return;   //jeśli pole już zajęte -- nie rób nic
-
                     b[rr][cc] = nextPlayer;     //update modelu gry
 
                     //ustawienie odpowiedniej ikony tam, gdzie kliknięto
-                    String filename;
-                    if (nextPlayer==1) {
-                        filename = "kiwi.png";
-                        nextPlayer = 2;
-                    } else {
-                        filename = "banana.png";
-                        nextPlayer = 1;
-                    }
+                    String filename = getIconFilenameForPlayer(nextPlayer);
+                    drawIconOnButton(button, filename);
 
-                    //ustawienie obrazka na planszy
-                    button.setGraphic(new ImageView(new Image(getClass()
-                            .getResourceAsStream(filename),75, 75, true, true)));
+                    nextPlayer = 3 - nextPlayer; //jeśli było 2 to teraz 1; jeśli było 1 to teraz 2
+
 
                     //update ikony następnego gracza
-                    String nextPlayerIconFilename;
-                    if (nextPlayer==2) {
-                        nextPlayerIconFilename = "banana.png";
-                    } else {
-                        nextPlayerIconFilename = "kiwi.png";
-                    }
-
+                    filename = getIconFilenameForPlayer(nextPlayer);
                     //rysowanie ikony następnego gracza
-                    drawNextPlayerButton(nextPlayerIconFilename);
-
-                    int winner = getWinner(b);
-                    if (winner != 0) {
-                        showGameWonDialog(winner);
-                        return;
-                    }
-                    if (areAllFieldsFilled(b)) {
-                        showEndOfGameDialog();
-                    }
-                });
-                button.setOnMouseClicked(event -> {
-                    if (event.getButton()== MouseButton.SECONDARY) {
-                        System.out.println("Naciśnięto prawym przyciskiem");
-                        //showEndOfGameDialog();
-                        clearAllBoardButtons();
-                    }
+                    drawNextPlayerButton(filename);
+                    checkGameOver();
                 });
             }
         }
+    }
 
+    //Sprawdza warunki zakończenia gry: albo zwycięzcę, albo zapełnienie planszy
+    private void checkGameOver() {
+        int winner = getWinner(b);
+        if (winner != 0) {
+            showGameWonDialog(winner);
+            return;
+        }
+        if (areAllFieldsFilled(b)) {
+            showEndOfGameDialog();
+        }
+    }
+
+
+    //Rysuje podaną ikonę na podanym buttonie
+    private void drawIconOnButton(Button button, String filename) {
+        button.setGraphic(
+                new ImageView(new Image(getClass()
+                        .getResourceAsStream(filename),
+                        75, 75, true, true)));
     }
 
     //definicja lokalnej funkcji
@@ -105,7 +91,6 @@ public class Controller {
         alert.setTitle("Game over");
         alert.setHeaderText("Current game came to an end");
         alert.setContentText("All fields are filled; no winner; game is a draw!");
-
         alert.showAndWait();
     }
 
@@ -127,10 +112,7 @@ public class Controller {
     private void clearAllBoardButtons() {
         board.getChildren().forEach(n ->{
             Button b = (Button)n;
-            b.setGraphic(
-                    new ImageView(new Image(getClass()
-                            .getResourceAsStream("blank.png"),
-                            75, 75, true, true)));
+            drawIconOnButton(b, "blank.png");
         });
     }
 
@@ -143,6 +125,14 @@ public class Controller {
         }
         nextPlayer = 1;
         //+ narysować nową ikonkę...
+    }
+
+    private String getIconFilenameForPlayer(int player) {
+        if (player==1) {
+            return "kiwi.png";
+        } else {
+            return "banana.png";
+        }
     }
 
     //Sprawdza czy wszystkie elementy tablicy "g" są != 0
