@@ -17,6 +17,7 @@ public class Controller {
 
     int[][] b;  //ta tablica zawiera informacje o stanie gry w postaci liczb całkowitych 0,1,2
     int nextPlayer = 1;
+    boolean gameIsNotOver;
 
     //Ta funkcja jest uruchamiana zaraz na początku działania okna
     public void initialize() {
@@ -24,6 +25,7 @@ public class Controller {
 
         //początkowa ikona następnego ruchu
         drawNextPlayerButton("kiwi.png");
+        gameIsNotOver = true;   //gra trwa
 
         //to jest kod dodający przyciski tworzące planszę na GUI
         for (int row = 0; row < 3; row++) {
