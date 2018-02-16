@@ -40,6 +40,7 @@ public class Controller {
                 Integer cc = column;
                 //tutaj doczepiamy akcje (normalnie "onAction" w fxml-u)
                 button.setOnAction(event -> {
+                    //todo: kod poniżej trzeba zrefaktorować
                     System.out.println("Naciścięto button nr: " + rr + ", " + cc);
                     if (b[rr][cc]!=0) return;   //jeśli pole już zajęte -- nie rób nic
 
